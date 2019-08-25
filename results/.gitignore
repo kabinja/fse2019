@@ -1,0 +1,17 @@
+#IDE
+*.vscode
+
+#python
+*__pycache__
+*.pyc
+
+#cache
+*.h5
+*.csv
+
+#results
+*.pdf
+*.aux
+*.tex
+*.log
+
