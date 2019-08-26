@@ -5,13 +5,14 @@ import pandas
 import subprocess
 import os
 import itertools
+import gzip
 
 from scipy.stats import wilcoxon
 
 import matplotlib
 matplotlib.rcParams['text.usetex'] = True
 
-PROJECTS = ['openssl']
+PROJECTS = ['openssl', 'linux_kernel', 'wireshark']
 CLASS_MODELS = ['last_3_releases']
 EXPERIMENTS = ['Vulnotvul']
 REALISTIC = ['ideal', 'realistic']
@@ -19,10 +20,10 @@ SMOTE = ['smote', 'no_smote']
 APPROACHES = ['BagOfWords', 'CodeMetrics', 'FunctionCalls', 'Includes']
 CLASSIFIERS = ['RandomForest']
 
-PROJECTS_ALTERNATIVE = ['openssl']
+PROJECTS_ALTERNATIVE = ['openssl', 'linux_kernel', 'wireshark']
 CLASS_MODELS_ALTERNATIVE = ['last_3_releases']
 EXPERIMENTS_ALTERNATIVE = ['Vulnotvul']
-REALISTIC_ALTERNATIVE = ['ideal']
+REALISTIC_ALTERNATIVE = ['ideal', 'realistic']
 SMOTE_ALTERNATIVE = ['no_smote']
 APPROACHES_ALTERNATIVE = ['BagOfWords', 'CodeMetrics', 'FunctionCalls', 'Includes']
 CLASSIFIERS_ALTERNATIVE = ['RandomForest']
@@ -37,7 +38,8 @@ GRAPHIX_EXTENSION = '.pdf'
 def load_data(input_info, weight):
     csv = get_filename(input_info, weight)
     print(csv)
-    data = pandas.read_csv(csv, sep=',')
+
+    data = pandas.read_csv(csv, sep=',', compression='gzip')
     clean_names(data)
 
     return data
@@ -97,7 +99,7 @@ def get_filename(input_info, weight):
     csv += '/' + input_info['realistic']
     csv += '/' + input_info['classifier']
 
-    return (csv + '-smote.csv') if input_info['smote'] == 'smote' else (csv + '.csv')
+    return (csv + '-smote.csv.gz') if input_info['smote'] == 'smote' else (csv + '.csv.gz')
 
 
 def get_prefix(folder, input_info):
