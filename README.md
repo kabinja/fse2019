@@ -1,6 +1,6 @@
 # Dataset for The Importance of Accounting for Real-World Labelling When Predicting Software Vulnerabilities
 
-This repo contains the replication set for the paper "The Importance of Accounting for Real-World Labelling When Predicting Software Vulnerabilities" presented at ESEC/FSE '19.
+This repo contains the replication set for the paper "The Importance of Accounting for Real-World Labelling When Predicting Software Vulnerabilities" [1] presented at ESEC/FSE '19. The dataset is composed of the vulnerabilities reported by NVD using the VulData7 framework [2] for the 3 projects: Linux Kernel, OpenSSL and WireShark.
 
 ## Getting started
 
@@ -32,3 +32,9 @@ The repo contains 5 entry points generating results. Each script is executed by 
 ### Results
 
 All the output are stored in the results/figures and results/tables folders as individual pdf files.
+
+## References
+
+[1] M. Jimenez, R. Rwemalika, M. Papadakis, F. Sarro, Y. Le Traon, and M. Harman, “The importance of accounting for real-world labelling when predicting software vulnerabilities,” in Proceedings of the 2019 27th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering - ESEC/FSE 2019, 2019, vol. 19, pp. 695–705.
+
+[2] M. Jimenez, Y. Le Traon, and M. Papadakis, “[Engineering Paper] Enabling the Continuous Analysis of Security Vulnerabilities with VulData7,” in 2018 IEEE 18th International Working Conference on Source Code Analysis and Manipulation (SCAM), 2018, pp. 56–61.
